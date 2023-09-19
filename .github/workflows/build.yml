@@ -2,7 +2,11 @@ name: Build Workflow
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
   push:
+    branches:
+      - master
+      - develop
 
 jobs:
   build-package:
