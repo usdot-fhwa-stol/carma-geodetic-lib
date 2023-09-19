@@ -10,7 +10,8 @@ jobs:
   sonarcloud:
     uses: usdot-fhwa-stol/actions/.github/workflows/sonar-scanner-cpp.yml@main
     with:
-      sonar-project-key: usdot-fhwa-stol_carma-time-lib
+      sonar-project-key: usdot-fhwa-stol_carma-geodetic-lib
+      build-image-tag: focal
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
       sonarcloud-token: ${{ secrets.SONAR_TOKEN }}
