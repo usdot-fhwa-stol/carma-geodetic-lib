@@ -1,7 +1,10 @@
 # CARMA Geodetic Library
 This CARMA Geodetic library is a focused library providing classes and utilities which enable a consuming project to make calls to translate between UTM coordinates and WSG84 coordinates.
 # CI Status
-**TODO**: Add CI badges
+[![Build Workflow](https://github.com/usdot-fhwa-stol/carma-geodetic-lib/actions/workflows/build.yml/badge.svg)](https://github.com/usdot-fhwa-stol/carma-geodetic-lib/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=usdot-fhwa-stol_carma-geodetic-lib&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=usdot-fhwa-stol_carma-geodetic-lib)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=usdot-fhwa-stol_carma-geodetic-lib&metric=coverage)](https://sonarcloud.io/summary/new_code?id=usdot-fhwa-stol_carma-geodetic-lib)
+
 # Architecture
 
 The library contains the geodetic header file which defines a struct for capturing WSG84 Coordinates, UTM Coordinates and UTM  Displacement. It also provides operators with which you can combine UTM Coordinates with UTM Displacements through addition and substraction.
