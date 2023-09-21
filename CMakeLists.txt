@@ -20,6 +20,7 @@ project(carma-geodetic
 find_package(Threads)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 include(cmake/dependencies.cmake)
 
 add_library(${PROJECT_NAME} SHARED)
@@ -35,7 +36,6 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
-message(STATUS "CMAKE_CURRENT_SOURCE_DIR : " ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries( ${PROJECT_NAME}
  ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
   GSL  # Note: Newer versions of GSL use Microsoft.GSL::GSL
@@ -49,6 +49,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 include(CommonSource)
 include(Testing)
 include(CodeCoverage)
-#include(InstallingGeneral)
-#include(InstallingConfigs)
+include(InstallingGeneral)
+include(InstallingConfigs)
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libproj-dev (>= 6.3.1-1)")
 include(Packing)

@@ -17,28 +17,26 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(cmake/FindPROJ4.cmake)
 set(CPM_USE_LOCAL_PACKAGES ON)
 
-# lint_cmake: -readability/wonkycase
-CPMAddPackage(NAME units
+# # lint_cmake: -readability/wonkycase
+CPMFindPackage (NAME units
   GITHUB_REPOSITORY nholthaus/units
   GIT_TAG v2.3.3
-  EXCLUDE_FROM_ALL ON
   SYSTEM ON
   OPTIONS
     "BUILD_TESTS FALSE"
     "BUILD_DOCS FALSE"
-    "CXXOPTS_ENABLE_INSTALL YES"
 )
+export( TARGETS units NAMESPACE units:: FILE unitsConfig.cmake)
 # lint_cmake: -readability/wonkycase
-CPMAddPackage(NAME Microsoft.GSL
+CPMFindPackage (NAME Microsoft.GSL
   GITHUB_REPOSITORY microsoft/GSL
-  GIT_TAG v2.1.0  # This is the version shipped with Ubuntu 20.04; newer versions are available
+  GIT_TAG v4.0.0  # This is the version shipped with Ubuntu 20.04; newer versions are available
   EXCLUDE_FROM_ALL ON
   SYSTEM ON
   OPTIONS
     "GSL_INSTALL TRUE"
     "GSL_TEST FALSE"
     "CMAKE_CXX_STANDARD 17"
-    "CXXOPTS_ENABLE_INSTALL YES"
 )
 
 # CARMA currently uses PROJ version 6.3.1, which is not designed to be incorporated
@@ -47,6 +45,5 @@ CPMAddPackage(NAME Microsoft.GSL
 # if there is no version already locally available.
 # See https://github.com/usdot-fhwa-stol/carma-platform/issues/2139 for the PROJ
 # version upgrade plans.
-
-
 find_package(PROJ4 REQUIRED MODULE)
+
