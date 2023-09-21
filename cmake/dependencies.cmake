@@ -11,14 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-include(cmake/GetCPM.cmake)
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-
-include(cmake/FindPROJ4.cmake)
+include(GetCPM)
 set(CPM_USE_LOCAL_PACKAGES ON)
 
-# # lint_cmake: -readability/wonkycase
-CMPAddPackage (NAME units
+# lint_cmake: -readability/wonkycase
+CPMAddPackage(NAME units
   GITHUB_REPOSITORY nholthaus/units
   GIT_TAG v2.3.3
   SYSTEM ON
@@ -30,7 +27,7 @@ CMPAddPackage (NAME units
 # target to run successfully. Needs tot be updated
 export( TARGETS units NAMESPACE units:: FILE unitsConfig.cmake)
 # lint_cmake: -readability/wonkycase
-CMPAddPackage (NAME Microsoft.GSL
+CPMAddPackage(NAME Microsoft.GSL
   GITHUB_REPOSITORY microsoft/GSL
   GIT_TAG v4.0.0  # This is the version shipped with Ubuntu 20.04; newer versions are available
   EXCLUDE_FROM_ALL ON
@@ -40,12 +37,13 @@ CMPAddPackage (NAME Microsoft.GSL
     "GSL_TEST FALSE"
     "CMAKE_CXX_STANDARD 17"
 )
-
 # CARMA currently uses PROJ version 6.3.1, which is not designed to be incorporated
 # as a subdirectory into larger projects. If CARMA upgrades to a newer version, we
 # could use the CPMAddPackage(...) command to install PROJ as a source dependency
 # if there is no version already locally available.
 # See https://github.com/usdot-fhwa-stol/carma-platform/issues/2139 for the PROJ
 # version upgrade plans.
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+include(cmake/FindPROJ4.cmake)
 find_package(PROJ4 REQUIRED MODULE)
 
