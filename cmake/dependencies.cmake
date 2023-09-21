@@ -18,7 +18,7 @@ include(cmake/FindPROJ4.cmake)
 set(CPM_USE_LOCAL_PACKAGES ON)
 
 # # lint_cmake: -readability/wonkycase
-CPMFindPackage (NAME units
+CMPAddPackage (NAME units
   GITHUB_REPOSITORY nholthaus/units
   GIT_TAG v2.3.3
   SYSTEM ON
@@ -30,7 +30,7 @@ CPMFindPackage (NAME units
 # target to run successfully. Needs tot be updated
 export( TARGETS units NAMESPACE units:: FILE unitsConfig.cmake)
 # lint_cmake: -readability/wonkycase
-CPMFindPackage (NAME Microsoft.GSL
+CMPAddPackage (NAME Microsoft.GSL
   GITHUB_REPOSITORY microsoft/GSL
   GIT_TAG v4.0.0  # This is the version shipped with Ubuntu 20.04; newer versions are available
   EXCLUDE_FROM_ALL ON
