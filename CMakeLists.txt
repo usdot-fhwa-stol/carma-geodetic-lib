@@ -23,12 +23,12 @@ target_include_directories(${PROJECT_NAME}
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 target_link_libraries( ${PROJECT_NAME}
- ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
+  ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
   Microsoft.GSL::GSL
   units::units
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES
-  SOVERSION 1
+  SOVERSION 0
 )
 # Required for gtest for test executable. TODO: Maybe this needs to be addresseding Testing.cmake in carma-builds
 find_package(Threads)
