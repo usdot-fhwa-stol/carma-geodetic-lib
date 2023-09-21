@@ -18,21 +18,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 include(cmake/dependencies.cmake)
 
 add_library(${PROJECT_NAME} SHARED)
-target_link_libraries( ${PROJECT_NAME}
- ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
-  GSL  # Note: Newer versions of GSL use Microsoft.GSL::GSL
-  units::units
-)
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
-        $<INSTALL_INTERFACE:include>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 target_link_libraries( ${PROJECT_NAME}
  ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
-  GSL  # Note: Newer versions of GSL use Microsoft.GSL::GSL
+  Microsoft.GSL::GSL
   units::units
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES
