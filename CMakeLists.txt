@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-# where to find our CMake modules
-set(CMAKE_MODULE_PATH "$ENV{CARMA_OPT_DIR}/cmake")
-# Required for std::lock and syntax
+# Append CMake Module path where carma libraries and carma-build cmake files are installed
+if(DEFINED ENV{CARMA_OPT_DIR})
+  list(APPEND CMAKE_MODULE_PATH $ENV{CARMA_OPT_DIR}/cmake)
+endif()
+
+
 set(CMAKE_CXX_STANDARD 17)
 
 project(carma-geodetic
@@ -12,9 +15,6 @@ project(carma-geodetic
     LANGUAGES CXX
 )
 
-find_package(Threads)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 include(cmake/dependencies.cmake)
 
 add_library(${PROJECT_NAME} SHARED)
@@ -30,6 +30,9 @@ target_link_libraries( ${PROJECT_NAME}
 set_target_properties(${PROJECT_NAME} PROPERTIES
     SOVERSION 1
 )
+# Required for gtest for test executable. TODO: Maybe this needs to be addresseding Testing.cmake in carma-builds
+find_package(Threads)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 include(CommonSource)
 include(Testing)

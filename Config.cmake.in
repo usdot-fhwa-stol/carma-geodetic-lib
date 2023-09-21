@@ -2,7 +2,7 @@
 
 include(CMakeFindDependencyMacro)
 
-find_dependency(${PROJ4_LIBRARIES} REQUIRED )
+find_dependency(PROJ4 REQUIRED )
 find_dependency(units::units REQUIRED )
 find_dependency(GSL REQUIRED )
 
