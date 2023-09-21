@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-include(cmake/get_cpm.cmake)
+include(cmake/GetCPM.cmake)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(cmake/FindPROJ4.cmake)
@@ -26,6 +26,8 @@ CPMFindPackage (NAME units
     "BUILD_TESTS FALSE"
     "BUILD_DOCS FALSE"
 )
+#TODO: This is probably not a complete working fix but it allows that project install
+# target to run successfully. Needs tot be updated
 export( TARGETS units NAMESPACE units:: FILE unitsConfig.cmake)
 # lint_cmake: -readability/wonkycase
 CPMFindPackage (NAME Microsoft.GSL
