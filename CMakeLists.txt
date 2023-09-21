@@ -9,18 +9,18 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 
 project(carma-geodetic
-    DESCRIPTION "CARMA geodetic library"
-    HOMEPAGE_URL https://github.com/usdot-fhwa-stol/carma-geodetic-lib
-	VERSION 0.0.1
-    LANGUAGES CXX
+  DESCRIPTION "CARMA geodetic library"
+  HOMEPAGE_URL https://github.com/usdot-fhwa-stol/carma-geodetic-lib
+  VERSION 0.0.1
+  LANGUAGES CXX
 )
 
 include(cmake/dependencies.cmake)
 
 add_library(${PROJECT_NAME} SHARED)
 target_include_directories(${PROJECT_NAME} 
-    PUBLIC
-        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  PUBLIC
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 target_link_libraries( ${PROJECT_NAME}
  ${PROJ4_LIBRARIES}  # Note: Newer versions of PROJ use PROJ::proj
@@ -28,7 +28,7 @@ target_link_libraries( ${PROJECT_NAME}
   units::units
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    SOVERSION 1
+  SOVERSION 1
 )
 # Required for gtest for test executable. TODO: Maybe this needs to be addresseding Testing.cmake in carma-builds
 find_package(Threads)
