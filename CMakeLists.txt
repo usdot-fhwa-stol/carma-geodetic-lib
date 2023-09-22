@@ -30,9 +30,7 @@ target_link_libraries( ${PROJECT_NAME}
 set_target_properties(${PROJECT_NAME} PROPERTIES
   SOVERSION 0
 )
-# Required for gtest for test executable. TODO: Maybe this needs to be addresseding Testing.cmake in carma-builds
-find_package(Threads)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
 
 include(CommonSource)
 include(Testing)
