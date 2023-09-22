@@ -53,13 +53,13 @@ Some additional configurations are provided out-of-the-box to streamline the dev
 
 | Item                                  | Description                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| .devcontainer/devcontainer.json       | Docker Dev Environment definition file.                                                                              |  |  |  |
-| .editorconfig                         | Some standard, robust VSCode editor configurations.                                                                  |  |  |  |
-| .github/workflows/build.yml           | GitHub CI build definition.                                                                                          |  |  |  |
-| .github/workflows/sonar-scanner.yml   | TODO                                                                                                                 |  |  |  |
-| .gitignore                            | Some helpful Git Ignore rules that should apply to Cmake-based C++ projects developed with most modern code editors. |  |  |  |
-| install_dependencies.sh               | Docker Dev Environment internal script. TODO move this file?                                                         |  |  |  |
-| .vscode/tasks.json                    | Build task definition utilizing Docker Dev Environment.                                                              |  |  |  |
+| .devcontainer/devcontainer.json       | Docker Dev Environment definition file.|  
+| .editorconfig                         | Some standard, robust VSCode editor configurations.|
+| .github/workflows/build.yml           | GitHub CI build |
+| .github/workflows/sonar-scanner.yml   | Github CI for sonar static code analysis and unit test coverage report |
+| .gitignore                            | Some helpful Git Ignore rules that should apply to Cmake-based C++ projects developed with most modern code editors.|
+| install_dependencies.sh               | Docker Dev Environment internal script. TODO move this file? |
+| .vscode/tasks.json                    | Build task definition utilizing Docker Dev Environment. |
 
 ## Deploying
 TODO
