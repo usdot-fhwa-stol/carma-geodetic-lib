@@ -46,7 +46,12 @@ If the container startup was successful, the development environment is up and r
 
 2. If the build is successful, tests are automatically executed and a Debian package is generated.
 3. TODO more details (output product locations, reference information for generalized docker dev solution including container configured locations etc.).
-
+## Setting up debugger
+1. In VSCode hit `shift+ctrl+p` to open the command list/search.
+2. Search for `CMake: Configure` and select it.
+3. Select `gcc`
+4. On the bottom toolbar on VSCode click the `Build` icon to run a CMake build of all project targets.
+5. On the bottom toolbar on VSCode click bug icon to launch the debugger.
 ## Additional IDE Configuration
 
 Some additional configurations are provided out-of-the-box to streamline the developer's setup process. These are included for Visual Studio Code:

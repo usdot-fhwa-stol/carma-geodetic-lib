@@ -23,9 +23,7 @@ CPMAddPackage(NAME units
     "BUILD_TESTS FALSE"
     "BUILD_DOCS FALSE"
 )
-#TODO: This is probably not a complete working fix but it allows that project install
-# target to run successfully. Needs tot be updated
-export( TARGETS units NAMESPACE units:: FILE unitsConfig.cmake)
+
 # lint_cmake: -readability/wonkycase
 CPMAddPackage(NAME Microsoft.GSL
   GITHUB_REPOSITORY microsoft/GSL
